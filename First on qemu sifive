@@ -1,0 +1,22 @@
+Quick Start
+Install repo command from Google if not available on your host system. Please follow the official instructions by Google.
+
+Then install a number of packages for BitBake (OE build tool) to work properly on your host system. BitBake itself depends on Python 3. Once you have Python 3 installed BitBake should be able to tell you most of the missing packages.
+
+For Ubuntu 18.04 (or newer) install python3-distutils package.
+
+Detailed instructions for various distributions can be found in "Required Packages for the Build Host" section in Yocto Project Reference Manual.
+
+
+Creating Workspace
+This needs to be done every time you want a clean setup based on the latest layers.
+
+mkdir riscv-sifive && cd riscv-sifive
+repo init -u git://github.com/sifive/meta-sifive -b 2021.09 -m tools/manifests/sifive.xml
+(here may hit some problem about python, try below command:
+$ mkdir -p ~/.bin
+$ PATH="${HOME}/.bin:${PATH}"
+$ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
+$ chmod a+rx ~/.bin/repo
+)
+repo sync
